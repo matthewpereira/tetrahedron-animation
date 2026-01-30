@@ -11,7 +11,7 @@ import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeome
 
 const canvas = document.querySelector<HTMLCanvasElement>('#canvas')!;
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xebe9e6); // Cream off-white background
+scene.background = new THREE.Color(0xffffff); // Notion white background
 
 const camera = new THREE.PerspectiveCamera(
   60,
@@ -159,6 +159,25 @@ const labelElements: HTMLElement[] = [
   document.getElementById('label-2')!,
   document.getElementById('label-3')!
 ];
+
+// ===========================
+// Dark Mode Toggle
+// ===========================
+
+const darkModeToggle = document.getElementById('dark-mode-toggle')!;
+let isDarkMode = false;
+
+darkModeToggle.addEventListener('click', () => {
+  isDarkMode = !isDarkMode;
+  document.body.classList.toggle('dark-mode');
+
+  // Update scene background color
+  if (isDarkMode) {
+    scene.background = new THREE.Color(0x191919); // Dark mode background
+  } else {
+    scene.background = new THREE.Color(0xffffff); // Light mode background
+  }
+});
 
 // ===========================
 // Update Label Positions
