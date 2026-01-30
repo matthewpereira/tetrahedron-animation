@@ -14,12 +14,12 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff); // Notion white background
 
 const camera = new THREE.PerspectiveCamera(
-  60,
+  35, // Reduced FOV to zoom in and fill vertical space
   window.innerWidth / window.innerHeight,
   0.1,
   1000
 );
-camera.position.set(3, 3, 3);
+camera.position.set(4, 2.5, 4); // Adjusted position for better framing
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
